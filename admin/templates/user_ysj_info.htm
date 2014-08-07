@@ -1,0 +1,75 @@
+<!-- $Id: user_ysj_info.htm  艺术家详情 $ -->
+{include file="pageheader.htm"}
+<div class="main-div">
+<form method="post" action="users_ysj.php" name="theForm" onsubmit="return validate()">
+<table width="100%" >
+  <tr>
+    <td class="label">{$lang.username}:</td>
+    <td>{if $form_action eq "update"}{$user.user_name}<input type="hidden" name="username" value="{$user.user_name}" />{else}<input type="text" name="username" maxlength="60" value="{$user.user_name}" />{$lang.require_field}{/if}</td>
+  </tr>
+
+
+  {foreach from=$extend_info_list item=field}
+  <tr>
+    <td class="label">{$field.reg_field_name}:</td>
+    <td>
+    <input name="extend_field{$field.id}" type="text" size="40" class="inputBg" value="{$field.content}" disabled=""/>
+    </td>
+  </tr>
+  {/foreach}
+  <tr>
+    <td class="label red">二级域名:</td>
+    <td><input type="text" name="secondurl" value="{$user.secondurl}" />.trueart.com.cn</td>
+  </tr>
+    <tr>
+    <td class="label red">是否加V:</td>
+    <td><input type="checkbox"  value="1" name="isv" {if $user.isv=='1'}checked=""{/if}>加V</td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center">
+      <input type="submit" value="审核通过" class="button" onclick="changeOK(1)"/>
+      <input type="submit" value="审核不通过" class="button" onclick="changeOK(0)" />
+      <input type="reset" value="{$lang.button_reset}" class="button" />
+      <input type="reset" value="返回" class="button"  onclick="javascript:history.back();"/>
+      <input type="hidden" name="act" value="{$form_action}" />
+      <input type="hidden" name="isok" id="isok" value="{$user.status}" />
+      <input type="hidden" name="id" value="{$user.user_id}" />    </td>
+  </tr>
+</table>
+
+</form>
+</div>
+{insert_scripts files="../js/utils.js,validator.js"}
+{literal}
+<script language="JavaScript">
+<!--
+
+onload = function()
+{
+    // 开始检查订单
+    startCheckOrder();
+}
+function changeOK(ok){
+	document.forms['theForm'].elements['isok'].value=ok;
+}
+/**
+ * 检查表单输入的数据
+ */
+function validate()
+{
+    validator = new Validator("theForm");
+   var isok = document.forms['theForm'].elements['isok'].value;
+   if(isok=='1'){
+	   var secondurl  = Utils.trim(document.forms['theForm'].elements['secondurl'].value);
+	   if(secondurl.length == 0){
+		   alert('请设置二级域名!');
+		   return false;
+	   }
+   }
+	return validator.passed();
+  
+}
+//-->
+</script>
+{/literal}
+{include file="pagefooter.htm"}

@@ -1,0 +1,113 @@
+{if $full_page}
+<!-- $Id: users_ysj_list.htm 艺术家列表 $ -->
+{include file="pageheader.htm"}
+{insert_scripts files="../js/utils.js,listtable.js"}
+
+<div class="form-div">
+  <form action="javascript:searchUser()" name="searchForm">
+    <img src="images/icon_search.gif" width="26" height="22" border="0" alt="SEARCH" />
+    &nbsp;用户名 &nbsp;<input type="text" name="keyword" /> <input type="submit" value="{$lang.button_search}" />
+  </form>
+</div>
+
+<form method="POST" action="" name="listForm" onsubmit="return confirm_bath()">
+
+<!-- start users list -->
+<div class="list-div" id="listDiv">
+{/if}
+<!--用户列表部分-->
+<table cellpadding="3" cellspacing="1">
+  <tr>
+    <th>
+      
+      <a href="javascript:listTable.sort('user_id'); ">{$lang.record_id}</a>{$sort_user_id}
+    </th>
+    <th>用户名</th>
+    <th>真实姓名</th>
+    <th>手机</th>
+    <th>籍贯</th>
+    <th>出生年月</th>
+    <th>毕业院校</th>
+    <th>申请时间</th>
+    <th>{$lang.handler}</th>
+  <tr>
+  {foreach from=$user_list item=user}
+  <tr>
+    <td>{$user.user_id}</td>
+    <td class="first-cell">{$user.user_name|escape}</td>
+    <td>{$user.content100|escape}</td>
+    <td>{$user.mobile_phone}</td>
+    <td>{$user.content101}</td>
+    <td>{$user.content102}</td>
+    <td>{$user.content103}</td>
+    <td>{$user.reg_time}</td>
+    <td align="center">
+      <a href="users_ysj.php?act=edit&id={$user.user_id}" title="{$lang.edit}"><img src="images/icon_edit.gif" border="0" height="16" width="16" /></a>
+    </td>
+  </tr>
+  {foreachelse}
+  <tr><td class="no-records" colspan="10">{$lang.no_records}</td></tr>
+  {/foreach}
+  <tr>
+      <td colspan="2">
+      <input type="hidden" name="act" value="batch_remove" />
+      <input type="submit" id="btnSubmit" value="{$lang.button_remove}" disabled="true" class="button" /></td>
+      <td align="right" nowrap="true" colspan="8">
+      {include file="page.htm"}
+      </td>
+  </tr>
+</table>
+
+{if $full_page}
+</div>
+<!-- end users list -->
+</form>
+<script type="text/javascript" language="JavaScript">
+<!--
+listTable.recordCount = {$record_count};
+listTable.pageCount = {$page_count};
+
+{foreach from=$filter item=item key=key}
+listTable.filter.{$key} = '{$item}';
+{/foreach}
+
+{literal}
+onload = function()
+{
+    document.forms['searchForm'].elements['keyword'].focus();
+    // 开始检查订单
+    startCheckOrder();
+}
+
+/**
+ * 搜索用户
+ */
+function searchUser()
+{
+    listTable.filter['keywords'] = Utils.trim(document.forms['searchForm'].elements['keyword'].value);
+    listTable.filter['page'] = 1;
+    listTable.loadList();
+}
+
+function confirm_bath()
+{
+  userItems = document.getElementsByName('checkboxes[]');
+
+  cfm = '{$lang.list_remove_confirm}';
+
+  for (i=0; userItems[i]; i++)
+  {
+    if (userItems[i].checked && userItems[i].notice == 1)
+    {
+      cfm = '{$lang.list_still_accounts}' + '{$lang.list_remove_confirm}';
+      break;
+    }
+  }
+
+  return confirm(cfm);
+}
+//-->
+</script>
+{/literal}
+{include file="pagefooter.htm"}
+{/if}

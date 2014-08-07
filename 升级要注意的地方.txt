@@ -1,0 +1,4 @@
+includes/cls_template.php
+includes/init.php
+includes/lib_insert.php
+admin/templates/menu.htm
