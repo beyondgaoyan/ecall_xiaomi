@@ -1,0 +1,79 @@
+/* CSS Document */
+/* CSS Document */
+
+.main{}
+.guanzhu{ width:1190px;
+          height:460px;
+		 margin:0 auto;
+		  background:#FFF;
+		   margin-top:0px;
+		   border:solid 1px #FFFFFF;
+		  
+		   }
+.guanzhu .title{ height:45px; line-height:45px; border-bottom:solid 2px #999999; margin:0 auto; margin-top:15px;}
+.guanzhu .title p{ float:right; margin-right:10px;}
+.guanzhu .title h3{ margin-left:10px; font-size:28px}
+.guanzhu ul{}
+.guanzhu ul li{ float:left; height:180px; width:262px; margin-left:32px; margin-top:20px; }
+.guanzhu ul li p{ text-align:center; margin-top:10px}
+
+.tuijian{ width:1190px;
+          height:460px;
+		 margin:0 auto;
+		  background:#FFF;
+		   margin-top:20px;
+		   border:solid 1px #FFFFFF;
+		  }
+.tuijian .title{ height:45px; line-height:45px; border-bottom:solid 2px #999999; margin:0 auto; margin-top:15px;}
+.tuijian .title p{ float:right; margin-right:10px;}
+.tuijian .title h3{ margin-left:10px; font-size:28px}
+.tuijian ul{}
+.tuijian ul li{ float:left; height:180px; width:262px; margin-left:32px; margin-top:20px;}
+.tuijian ul li p{ text-align:center; margin-top:10px}
+
+.yishu{ width:1190px;;
+          height:460px;
+		 margin:0 auto;
+		  background:#FFF;
+		   margin-top:20px;
+		   border:solid 1px #FFFFFF;
+		  }
+.yishu .title{ height:45px; line-height:45px; border-bottom:solid 2px #999999; margin:0 auto; margin-top:15px;}
+.yishu .title p{ float:right; margin-right:10px;}
+.yishu .title h3{ margin-left:10px; font-size:28px}
+.yishu ul{}
+.yishu ul li{ float:left; height:180px; width:262px; margin-left:32px; margin-top:20px;}
+.yishu ul li p{ text-align:center; margin-top:10px}
+
+.zhan{ width:1190px;
+          height:480px;
+		 margin:0 auto;
+		  background:#FFF;
+		   margin-top:20px;
+		   border:solid 1px #FFFFFF;}
+.zhan .title{ height:45px; border-bottom:solid 2px #999999; margin:0 auto; margin-top:10px;}
+.zhan .title p{ float:right; margin-right:10px;}
+.zhan .title h3{ margin-left:10px; font-size:28px}
+.zhan .lan{ position:relative;}
+.zhan .lan .lana{ position:absolute; left:10px; top:15px;}
+.zhan .lan .lanb{ position:absolute; right:10px; top:15px;}
+.zhan .lan .lanbb{ position:absolute; right:0; top:0; border:solid 1px #FFFFFF; width:480px; height:300px;}
+.zhan .lan .lanbb .lanc{ position:absolute; right:10px; top:320px}
+.zhan .lan .lanbb .lanb1{ width:270px; height:50px; line-height:50px; border:solid 1px #FFFFFF; margin:0 0; }
+.zhan .lan .lanbb .lanb1 span{ font-size:22px; font-weight:bold;}
+.zhan .lan .lanbb .lanb1 p{ }
+.zhan .lan .lanbb .lanb2{ width:270px; height:50px; line-height:50px; border:solid 1px #FFFFFF; margin:0 0; }
+.zhan .lan .lanbb .lanb2 span{ font-size:22px; font-weight:bold;}
+.zhan .lan .lanbb .lanb3{ width:270px; height:50px; line-height:50px; border:solid 1px #FFFFFF; margin:0 0; }
+.zhan .lan .lanbb .lanb3 span{ font-size:22px; font-weight:bold;}
+.zhan .lan .lanbb .lanb4{ width:450px; height:140px; line-height:30px; border:solid 1px #FFFFFF; margin:0 0; }
+.zhan .lan .lanbb .lanb4 span{ font-size:22px; font-weight:bold;}
+.jianjie{ width:100%; background:#FFF; margin-top:20px; margin:0 auto;}
+.jianjie span{ font-size:22px; font-weight:bold;}
+.biaoti { height:55px; line-height:55px; margin-top:20px; background:#FFF;}
+  .biaoti p{ float:right; margin-right:10px;}
+   .biaoti h3{ margin-left:10px; }
+ .tu{ width:100%; height:680px; margin-top:20px;}
+ .tu ul{ float:left;}
+ .tu ul li{ float:left; width:595px; height:330px; line-height:330px; margin-left:0px; }
+ .tu ul li a{  }

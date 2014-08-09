@@ -98,10 +98,12 @@ visibility:hidden;
   }
   .boxCenterList{padding:7px 7px 6px 7px; background-color:#fff;}
   /*模块标题*/
-  h3{height:40px; line-height:40px; font-size:12px; text-align:right; background-color:#fff; border-bottom:1px solid #E6E9ED;}
+ /*
+ h3{height:40px; line-height:40px; font-size:12px; text-align:right; background-color:#fff; border-bottom:1px solid #E6E9ED;}
   h3.border{ border-bottom:none;}
   h3 img{position:relative;}
   h3 span{float:left; padding-left:15px; font-size:18px;color:#434A54; font-weight:normal}
+*/
  
   h5{height:30px; line-height:30px; font-size:12px; text-align:right; background-color:#FAF6F5; border:1px solid #DEDDDB;}
   h5 span{float:left; padding-left:15px; font-size:14px;color:#434A54; font-weight:normal}

@@ -3,19 +3,19 @@
   <div class="footerup">
     <div class="footercont">
       <ul class="nums clearfix">
-        <li class="first"><a href="#" target="_blank" ><span>7</span><strong>
+        <li class="first"><a href="#"><span>7</span><strong>
           <label>天</label>
           退货保障 </strong></a></li>
         <li class="line">|</li>
-        <li class="second"><a href="#" target="_blank"><span>15</span><strong>
+        <li class="second"><a href="#"><span>15</span><strong>
           <label>天</label>
           换货承诺 </strong></a></li>
         <li class="line">|</li>
-        <li class="third"><a href="#" target="_blank"><span>100</span><strong>
+        <li class="third"><a href="#"><span>100</span><strong>
           <label>元起</label>
           全场免邮费 </strong></a></li>
         <li class="line"></li>
-        <li class="fourth"><a href="#" target="_blank"><span>420</span><strong>
+        <li class="fourth"><a href="#"><span>420</span><strong>
           <label>余家</label>
           售后服务网点 </strong></a></li>
       </ul>
@@ -54,7 +54,7 @@
         </div>
       </div>
     </div>
-  </div><div style="display:none"><a href="http://www.yunmoban.cn">ecshop模板</a></div>
+  </div>
   <div class="linker"><!-- {foreach name=nav_bottom_list from=$navigator_list.bottom item=nav} -->
   <a href="{$nav.url}" <!-- {if $nav.opennew eq 1} --> target="_blank" <!-- {/if} -->>{$nav.name}</a><!-- {if !$smarty.foreach.nav_bottom_list.last} --> | <!-- {/if} -->
   <!-- {/foreach} --></div>

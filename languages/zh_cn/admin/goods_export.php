@@ -244,7 +244,7 @@ $_LANG['custom']['is_real'] = '是否实体商品';
 
 $_LANG['custom_keyword'] = '关键字';
 $_LANG['custom_goods_cat'] = '所有分类';
-$_LANG['custom_goods_brand'] = '所有品牌';
+$_LANG['custom_goods_brand'] = '所有艺术家';
 $_LANG['custom_goods_list'] = '选择商品数据列';
 $_LANG['custom_goods_type'] = '所有商品类型';
 $_LANG['custom_export_list'] = '输出商品数据列';

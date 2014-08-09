@@ -3,7 +3,7 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<title>{if $brand_id}{$brands_array.brand.name}{else}所有品牌{/if} - {$shop_name}</title>
+	<title>{if $brand_id}{$brands_array.brand.name}{else}所有艺术家{/if} - {$shop_name}</title>
 	<link href="css/reset.css" rel="stylesheet" type="text/css" />
 	<link href="css/search_new.css" rel="stylesheet" type="text/css" />
 	<link href="css/foot.css" rel="stylesheet" type="text/css" />
@@ -57,7 +57,7 @@ function chkSearch() {
 		<!--页面上方搜索框区域end-->
 		<div class="tab">
 <div class="label">
-	<a class="label1" href="javascript:void(0)"><i class="on"></i>所有品牌</a>
+	<a class="label1" href="javascript:void(0)"><i class="on"></i>所有艺术家</a>
 </div>
 <div class="category">
 	<ul>

@@ -55,8 +55,9 @@ $page   = !empty($_REQUEST['page'])  && intval($_REQUEST['page'])  > 0 ? intval(
 
 /* 获得页面的缓存ID */
 $cache_id = sprintf('%X', crc32($cat_id . '-' . $page . '-' . $_CFG['lang']));
-
-if (!$smarty->is_cached('article_cat.dwt', $cache_id))
+//by gaoyan 分类为8的时候为艺术活动，调用专门的模板
+$dwt = ($cat_id==8) ? 'article_cat_8.dwt' : 'article_cat.dwt';
+if (!$smarty->is_cached($dwt, $cache_id))
 {
     /* 如果页面没有被缓存则重新获得页面的内容 */
 
@@ -120,6 +121,7 @@ if (!$smarty->is_cached('article_cat.dwt', $cache_id))
 
         $goon_keywords = urlencode($_REQUEST['keywords']);
     }
+    print_r(get_cat_articles($cat_id, $page, $size ,$keywords));
     $smarty->assign('artciles_list',    get_cat_articles($cat_id, $page, $size ,$keywords));
     $smarty->assign('cat_id',    $cat_id);
     /* 分页 */
@@ -129,6 +131,6 @@ if (!$smarty->is_cached('article_cat.dwt', $cache_id))
 
 $smarty->assign('feed_url',         ($_CFG['rewrite'] == 1) ? "feed-typearticle_cat" . $cat_id . ".xml" : 'feed.php?type=article_cat' . $cat_id); // RSS URL
 
-$smarty->display('article_cat.dwt', $cache_id);
+$smarty->display($dwt, $cache_id);
 
 ?>

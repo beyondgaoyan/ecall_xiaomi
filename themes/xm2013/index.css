@@ -323,11 +323,11 @@ ul,li,p,dl,dd,dt {
 }
 .home-hot-goods .xm-goods-list-wrap,.home-today-goods .xm-goods-list-wrap {
 	float:right;
-	width:710px;
+	/* width:710px; */
 	border-left:1px solid #ededed
 }
 .home-hot-goods .xm-goods-list-wrap .xm-goods-list,.home-today-goods .xm-goods-list-wrap .xm-goods-list {
-	width:710px
+	/* width:710px */
 }
 .home-hot-goods .xm-goods-list-wrap .xm-goods-list li,.home-today-goods .xm-goods-list-wrap .xm-goods-list li {
 	width:235px;

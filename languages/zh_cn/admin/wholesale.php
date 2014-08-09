@@ -43,7 +43,7 @@ $_LANG['search_result_empty'] = '没有找到商品，请重新搜索';
 $_LANG['quantity'] = '数量';
 $_LANG['price'] = '价格';
 $_LANG['custom_goods_cat'] = '所有分类';
-$_LANG['custom_goods_brand'] = '所有品牌';
+$_LANG['custom_goods_brand'] = '所有艺术家';
 
 $_LANG['js_languages']['act_name_not_null'] = '请输入批发方案名称';
 

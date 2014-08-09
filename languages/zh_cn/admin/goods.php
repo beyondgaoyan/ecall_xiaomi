@@ -55,7 +55,7 @@ $_LANG['not_writable_warning'] = '目录 %s 不可写，您需要把该目录设
 //-- 商品列表
 /*------------------------------------------------------ */
 $_LANG['goods_cat'] = '所有分类';
-$_LANG['goods_brand'] = '所有品牌';
+$_LANG['goods_brand'] = '所有艺术家';
 $_LANG['intro_type'] = '全部';
 $_LANG['keyword'] = '关键字';
 $_LANG['is_best'] = '精品';

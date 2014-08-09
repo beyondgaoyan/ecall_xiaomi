@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<title>{$page_title}</title>
+<link rel="shortcut icon" href="favicon.ico"/>
+<link rel="icon" href="animated_favicon.gif" type="image/gif"/>
+<link href="themes/xm2013/style.css" rel="stylesheet" type="text/css"/>
+<link href="themes/xm2013/base.css" rel="stylesheet" type="text/css"/>
+<link href="themes/xm2013/css/basea.css" rel="stylesheet" type="text/css"/>
+{insert_scripts files='common.js,global.js,compare.js'}
+</head>
+<body><!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<div class="header container">
+<div class="zhan">
+          
+    <div class="title">
+        <p class="more"><a href="brand.php">更多</a></p>
+              <h3><a href="javascript:void(0)">艺术家简介</a></h3>
+    </div>
+      <div class="lan">
+          <div class="lana"><img src="data/brandlogo/{$brand.brand_logo}" style="width:680px; height:380px"></div> 
+          <div class="lanb"><img src="themes/xm2013/image/z2.png" style="width:146px; height:145px"></div> 
+          <div class="lanbb">
+            <div class="lanc"><a href="brand.php?id={$brand.brand_id}"><img src="themes/xm2013/image/z3.png" style="width:452px; height:77px"></a></div> 
+            <div class="lanb1">
+              <span>姓名：</span>{$brandinfo.truename}
+            </div>
+            <div class="lanb2">
+              <span>出生年月：</span>{$brandinfo.brithday}
+            </div>
+            <div class="lanb3">
+               <span>籍贯：</span>{$brandinfo.jiguan}
+            </div>
+           
+         </div>
+       </div>
+   </div>
+   <div class="jianjie">
+    <span>简介：</span>{$brand.brand_desc|nl2br}
+   </div>
+</div>
+
+
+
+<div class="blank"></div><!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem --></body>
+
+<script type="text/javascript">
+var time_hide_all_cat = null;
+if (document.getElementById("div_all_cat").className == 'showlist snone'){
+   document.getElementById("btnnav").onmouseover = show_all_cat;
+   
+   document.getElementById("btnnav").onmouseout = function(e){
+      time_hide_all_cat = setTimeout("hide_all_cat()",100);
+   }
+   
+   document.getElementById("div_all_cat").onmouseover = show_all_cat;
+   
+   document.getElementById("div_all_cat").onmouseout = hide_all_cat;
+}
+
+function hide_all_cat(){
+   document.getElementById("div_all_cat").className = 'showlist snone';
+}
+
+function show_all_cat(){
+   clearTimeout(time_hide_all_cat);
+   document.getElementById("div_all_cat").className = 'showlist';
+}
+
+</script>
+
+</html>

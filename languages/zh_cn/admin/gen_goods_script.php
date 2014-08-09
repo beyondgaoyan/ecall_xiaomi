@@ -22,7 +22,7 @@ $_LANG['label_charset'] = '选择编码：';
 $_LANG['label_sitename'] = '引用站点名称：';
 
 $_LANG['all_category'] = '所有分类';
-$_LANG['all_brand'] = '所有品牌';
+$_LANG['all_brand'] = '所有艺术家';
 $_LANG['all_intro_type'] = '所有推荐类型';
 $_LANG['need'] = '显示';
 $_LANG['need_not'] = '不显示';

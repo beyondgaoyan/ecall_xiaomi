@@ -71,6 +71,7 @@ function get_cat_articles($cat_id, $page = 1, $size = 20 ,$requirement='')
             $arr[$article_id]['author']      = empty($row['author']) || $row['author'] == '_SHOPHELP' ? $GLOBALS['_CFG']['shop_name'] : $row['author'];
             $arr[$article_id]['url']         = $row['open_type'] != 1 ? build_uri('article', array('aid'=>$article_id), $row['title']) : trim($row['file_url']);
             $arr[$article_id]['add_time']    = date($GLOBALS['_CFG']['date_format'], $row['add_time']);
+            $arr[$article_id]['imageurl']    = trim($row['file_url']);//by gaoyan
         }
     }
 

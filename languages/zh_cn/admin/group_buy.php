@@ -35,7 +35,7 @@ $_LANG['view_order'] = '查看订单';
 $_LANG['goods_cat'] = '商品分类';
 $_LANG['all_cat'] = '所有分类';
 $_LANG['goods_brand'] = '商品品牌';
-$_LANG['all_brand'] = '所有品牌';
+$_LANG['all_brand'] = '所有艺术家';
 
 $_LANG['label_goods_name'] = '团购商品：';
 $_LANG['notice_goods_name'] = '请先搜索商品,在此生成选项列表...';

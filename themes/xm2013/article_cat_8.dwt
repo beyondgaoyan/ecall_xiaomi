@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<title>{$page_title}</title>
+<link rel="shortcut icon" href="favicon.ico"/>
+<link rel="icon" href="animated_favicon.gif" type="image/gif"/>
+<link href="themes/xm2013/style.css" rel="stylesheet" type="text/css"/>
+<link href="themes/xm2013/base.css" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" type="text/css" href="themes/xm2013/css/basea.css"/>
+<script type="text/javascript" src="js/common.js"></script>
+</head>
+<body><!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<div class="header container">
+  <div class="zhu">
+   <div class="biaoti">
+
+              <h3><a href="#">艺术活动</a></h3>
+   </div>
+  <div class="tu">
+             <ul>
+             <!-- {foreach from=$artciles_list item=article} -->
+              <li><a href="{$article.url}" title="{$article.title|escape:html}"><img style="width:587px; height:322px;" src="{$article.imageurl}" alt="{$article.title|escape:html}"></a></li>
+                <!-- {/foreach} -->
+             </ul>
+        </div>
+ </div>
+</div>
+
+<!--帮助-->
+<!--友情链接 start-->
+<!--{if $img_links  or $txt_links }-->
+<div id="bottomNav" class="box">
+ <div class="box_1">
+  <div class="links clearfix">
+    <!--开始图片类型的友情链接{foreach from=$img_links item=link}-->
+    <a href="{$link.url}" target="_blank" title="{$link.name}"><img src="{$link.logo}" alt="{$link.name}" border="0" /></a>
+    <!--结束图片类型的友情链接{/foreach}-->
+    <!-- {if $txt_links} -->
+    <!--开始文字类型的友情链接{foreach from=$txt_links item=link}-->
+    [<a href="{$link.url}" target="_blank" title="{$link.name}">{$link.name}</a>] 
+    <!--结束文字类型的友情链接{/foreach}-->
+    <!-- {/if} -->
+  </div>
+ </div>
+</div>
+<!--{/if}-->
+<!--友情链接 end--><!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem --></body>
+<script type="text/javascript">
+document.getElementById('cur_url').value = window.location.href;
+</script>
+
+<script type="text/javascript">
+var time_hide_all_cat = null;
+if (document.getElementById("div_all_cat").className == 'showlist snone'){
+   document.getElementById("btnnav").onmouseover = show_all_cat;
+   
+   document.getElementById("btnnav").onmouseout = function(e){
+      time_hide_all_cat = setTimeout("hide_all_cat()",100);
+   }
+   
+   document.getElementById("div_all_cat").onmouseover = show_all_cat;
+   
+   document.getElementById("div_all_cat").onmouseout = hide_all_cat;
+}
+
+function hide_all_cat(){
+   document.getElementById("div_all_cat").className = 'showlist snone';
+}
+
+function show_all_cat(){
+   clearTimeout(time_hide_all_cat);
+   document.getElementById("div_all_cat").className = 'showlist';
+}
+
+</script>
+
+</html>

@@ -685,6 +685,7 @@ function get_brands($cat = 0, $app = 'brand')
     {
         $row[$key]['url'] = build_uri($app, array('cid' => $cat, 'bid' => $val['brand_id']), $val['brand_name']);
         $row[$key]['brand_desc'] = htmlspecialchars($val['brand_desc'],ENT_QUOTES);
+        $row[$key]['logourl'] = 'data/brandlogo/'.$val['brand_logo'];//品牌图片全路径by gaoyan
     }
 
     return $row;
@@ -1587,6 +1588,7 @@ function build_uri($app, $params, $append = '', $page = 0, $keywords = '', $size
 
             break;
         case 'brand':
+        //调整品牌链接为艺术家介绍首页   brandinfo.php
             if (empty($bid))
             {
                 return false;
@@ -1615,7 +1617,7 @@ function build_uri($app, $params, $append = '', $page = 0, $keywords = '', $size
                 }
                 else
                 {
-                    $uri = 'brand.php?id=' . $bid;
+                    $uri = 'brandinfo.php?id=' . $bid;
                     if (!empty($cid))
                     {
                         $uri .= '&amp;cat=' . $cid;
