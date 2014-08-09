@@ -121,7 +121,7 @@ if (!$smarty->is_cached($dwt, $cache_id))
 
         $goon_keywords = urlencode($_REQUEST['keywords']);
     }
-    print_r(get_cat_articles($cat_id, $page, $size ,$keywords));
+
     $smarty->assign('artciles_list',    get_cat_articles($cat_id, $page, $size ,$keywords));
     $smarty->assign('cat_id',    $cat_id);
     /* 分页 */
