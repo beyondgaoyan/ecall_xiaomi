@@ -10,6 +10,19 @@
           <input type='text' name='cat_name' maxlength="20" value='{$cat_info.cat_name|escape:html}' size='27' /> <font color="red">*</font>
         </td>
       </tr>
+	  <tr>
+	    <td class="label"><a href="javascript:showNotice('warn_categorylogo');" title="{$lang.form_notice}">
+	        <img src="images/notice.gif" width="16" height="16" border="0" alt="{$lang.form_notice}"></a>分类LOGO</td>
+	    <td><input type="file" name="category_logo" id="logo" size="45">{if $cat_info.category_logo neq ""}<input type="button" value="删除图标" onclick="if (confirm('你确认要删除该图标吗?'))location.href='category.php?act=drop_logo&id={$cat_info.cat_id}'">{/if}
+	    <br /><span class="notice-span" {if $help_open}style="display:block" {else} style="display:none" {/if} id="warn_categorylogo">
+	    {if $cat_info.category_logo eq ''}
+	    {$lang.up_categorylogo}
+	    {else}
+	    {$lang.warn_categorylogo}
+	    {/if}
+	    </span>
+	    </td>
+	  </tr>
       <tr>
         <td class="label">{$lang.parent_id}:</td>
         <td>

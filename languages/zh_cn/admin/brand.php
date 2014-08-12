@@ -30,6 +30,7 @@ $_LANG['brand_list_lnk'] = '返回列表页面';
 $_LANG['up_brandlogo'] = '请上传图片，做为品牌的LOGO！';
 $_LANG['warn_brandlogo'] = '你已经上传过图片。再次上传时将覆盖原图片！';
 
+
 /*提示信息*/
 $_LANG['brand_edit'] = '编辑品牌记录';
 $_LANG['upload_failure'] = '图片上传失败！';

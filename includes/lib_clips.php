@@ -564,8 +564,8 @@ function get_user_surplus($user_id)
 function get_user_default($user_id)
 {
     $user_bonus = get_user_bonus();
-
-    $sql = "SELECT pay_points, user_money, credit_line, last_login, is_validated FROM " .$GLOBALS['ecs']->table('users'). " WHERE user_id = '$user_id'";
+	//用户首页加上是否艺术家   艺术家申请状态 by gaoyan   isysj=1 是艺术家申请，status=1申请通过，0为失败，空为审核中
+    $sql = "SELECT pay_points, user_money, credit_line, last_login, is_validated,isysj,status FROM " .$GLOBALS['ecs']->table('users'). " WHERE user_id = '$user_id'";
     $row = $GLOBALS['db']->getRow($sql);
     $info = array();
     $info['username']  = stripslashes($_SESSION['user_name']);
@@ -597,7 +597,14 @@ function get_user_default($user_id)
             " FROM " .$GLOBALS['ecs']->table('order_info').
             " WHERE user_id = '" .$user_id. "' AND shipping_time > '" .$last_time. "'". order_query_sql('shipped');
     $info['shipped_order'] = $GLOBALS['db']->getAll($sql);
-
+	//by gaoyan
+	$info['isysj']   = $row['isysj'];
+	$info['status']   = $row['status'];
+	if($row['isysj']=='1' && $row['status']=='1'){
+		$sql = "SELECT brand_id FROM " .$GLOBALS['ecs']->table('brand').
+            " WHERE user_id = '" .$user_id. "' and is_show=1";
+			$info['brand_id'] = $GLOBALS['db']->getOne($sql);
+	}
     return $info;
 }
 

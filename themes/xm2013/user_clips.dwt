@@ -151,11 +151,18 @@ if (isWidescreen){document.getElementsByTagName("body")[0].className="w950";}
       <div class="userCenterBox boxCenterList clearfix" style="_height:1%;">
          <!-- *用户中心默认显示页面 start-->
          <!-- {if $action eq 'default'} -->
-          <font class="f5"><b class="f4">{$info.username}</b> {$lang.welcome_to} {$info.shop_name}！</font><br />
+          <font class="f5"><b class="f4">{$info.username}</b> {$lang.welcome_to} {$info.shop_name}!</font><br />
           <div class="blank"></div>
           {$lang.last_time}: {$info.last_time}<br />
           <div class="blank5"></div>
           {$rank_name} {$next_rank_name}<br />
+          <!-- {if $info.isysj=='1'} -->
+          <font color="blue">
+          <!-- {if $info.status=='1'} -->您已经成为本站的：<a href="brandinfo.php?id={$info.brand_id}" target="_blank"><font color="blue">艺术家</font></a><br><!-- {/if} -->
+          <!-- {if $info.status=='0'} -->您的艺术家申请被驳回。<br><!-- {/if} -->
+          <!-- {if $info.status==''} -->您的艺术家申请审核中……<br><!-- {/if} -->
+          </font>
+          <!-- {/if} -->
           <div class="blank5"></div>
            <!--{if $info.is_validate eq 0} -->
           {$lang.not_validated} <a href="javascript:sendHashMail()" style="color:#006bd0;">{$lang.resend_hash_mail}</a><br />

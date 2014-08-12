@@ -185,8 +185,8 @@ document.getElementById("div_all_cat").className = "showlist";
       </div>
          <div class="sen">
              <ul>
-<!--{foreach from=$best_goods item=goods name="best_goods"}-->
-            <li><a href="{$goods.url}" title="{$goods.name|escape:html}" target="_blank"><img style="width:239px;height:138px;" src="{$goods.thumb}" alt="{$goods.short_name|escape:html}"><p>{$goods.short_name|escape:html}</p></a></li>
+<!--{foreach from=$brand_list item=brands name="brand_list"}-->
+             	<li><a href="{$brands.url}" title="{$brands.brand_name|escape:html}" target="_blank"><img style="width:239px;height:138px;" src="{$brands.logourl}" alt="{$brands.brand_name|escape:html}"><p>{$brands.brand_name|escape:html}</p></a></li>
                <!--{/foreach}-->
              </ul>
       </div>
@@ -213,9 +213,7 @@ document.getElementById("div_all_cat").className = "showlist";
     </div>
       <div>
              <ul>
-             <!--{foreach from=$brand_list item=brands name="brand_list"}-->
-             	<li><a href="{$brands.url}" title="{$brands.brand_name|escape:html}" target="_blank"><img style="width:239px;height:138px;" src="{$brands.logourl}" alt="{$brands.brand_name|escape:html}"><p>{$brands.brand_name|escape:html}</p></a></li>
-               <!--{/foreach}-->
+             
              </ul>
        </div>
    </div>

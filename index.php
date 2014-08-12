@@ -118,7 +118,7 @@ if (!$smarty->is_cached('index.dwt', $cache_id))
     $smarty->assign('new_goods',       get_recommend_goods('new'));     // 最新商品
     $smarty->assign('hot_goods',       get_recommend_goods('hot'));     // 热点文章
     $smarty->assign('promotion_goods', get_promote_goods()); // 特价商品
-    $smarty->assign('brand_list',      get_brands());
+    $smarty->assign('brand_list',      get_brands_index());//仅首页展示的品牌艺术家 by gaoyan
     $smarty->assign('promotion_info',  get_promotion_info()); // 增加一个动态显示所有促销信息的标签栏
 
     $smarty->assign('invoice_list',    index_get_invoice_query());  // 发货查询

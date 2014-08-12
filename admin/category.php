@@ -16,6 +16,9 @@
 define('IN_ECS', true);
 
 require(dirname(__FILE__) . '/includes/init.php');
+//by gaoyan增加图片上传
+include_once(ROOT_PATH . 'includes/cls_image.php');
+$image = new cls_image($_CFG['bgcolor']);
 $exc = new exchange($ecs->table("category"), $db, 'cat_id', 'cat_name');
 
 /* act操作项的初始化 */
@@ -109,7 +112,11 @@ if ($_REQUEST['act'] == 'insert')
     $cat['filter_attr']  = !empty($_POST['filter_attr'])  ? implode(',', array_unique(array_diff($_POST['filter_attr'],array(0)))) : 0;
 
     $cat['cat_recommend']  = !empty($_POST['cat_recommend'])  ? $_POST['cat_recommend'] : array();
-
+	//by gaoyan
+	/*处理图片*/
+    $img_name = basename($image->upload_image($_FILES['category_logo'],'categorylogo'));
+    $cat['category_logo'] = !empty($img_name)?$img_name:'';
+    
     if (cat_exists($cat['cat_name'], $cat['parent_id']))
     {
         /* 同级别下不能有重复的分类名称 */
@@ -267,7 +274,13 @@ if ($_REQUEST['act'] == 'update')
     $cat['grade']        = !empty($_POST['grade'])        ? intval($_POST['grade'])      : 0;
     $cat['filter_attr']  = !empty($_POST['filter_attr'])  ? implode(',', array_unique(array_diff($_POST['filter_attr'],array(0)))) : 0;
     $cat['cat_recommend']  = !empty($_POST['cat_recommend'])  ? $_POST['cat_recommend'] : array();
-
+	/* 处理图片 */
+    $img_name = basename($image->upload_image($_FILES['category_logo'],'categorylogo'));
+    if (!empty($img_name))
+    {
+        //有图片上传
+        $cat['category_logo'] = $img_name;
+    }
     /* 判断分类名是否重复 */
 
     if ($cat['cat_name'] != $old_cat_name)
@@ -582,7 +595,28 @@ if ($_REQUEST['act'] == 'remove')
     ecs_header("Location: $url\n");
     exit;
 }
+/*------------------------------------------------------ */
+//-- 删除分类图片 by gaoyan
+/*------------------------------------------------------ */
+if ($_REQUEST['act'] == 'drop_logo')
+{
+    /* 权限判断 */
+    admin_priv('cat_manage');
+    $cat_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
+    /* 取得logo名称 */
+    $sql = "SELECT category_logo FROM " .$ecs->table('category'). " WHERE cat_id = '$cat_id'";
+    $logo_name = $db->getOne($sql);
+
+    if (!empty($logo_name))
+    {
+        @unlink(ROOT_PATH . DATA_DIR . '/categorylogo/' .$logo_name);
+        $sql = "UPDATE " .$ecs->table('category'). " SET category_logo = '' WHERE cat_id = '$cat_id'";
+        $db->query($sql);
+    }
+    $link= array(array('text' => '重新编辑该分类', 'href' => 'category.php?act=edit&cat_id=' . $cat_id), array('text' => '返回列表页面', 'href' => 'category.php?act=list'));
+    sys_msg('删除分类logo成功', 0, $link);
+}
 /*------------------------------------------------------ */
 //-- PRIVATE FUNCTIONS
 /*------------------------------------------------------ */

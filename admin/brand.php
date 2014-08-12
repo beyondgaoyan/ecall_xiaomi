@@ -148,10 +148,10 @@ elseif ($_REQUEST['act'] == 'updata')
      /*处理URL*/
     $site_url = sanitize_url( $_POST['site_url'] );
 
-    /* 处理图片 */
+    
     //首页推荐 by gaoyan
     $is_index = isset($_REQUEST['is_index']) ? intval($_REQUEST['is_index']) : 0;
-
+	/* 处理图片 */
     $img_name = basename($image->upload_image($_FILES['brand_logo'],'brandlogo'));
     $param = "brand_name = '$_POST[brand_name]',  site_url='$site_url', brand_desc='$_POST[brand_desc]', is_show='$is_show', sort_order='$_POST[sort_order]' ,is_index='$is_index'";
     if (!empty($img_name))
