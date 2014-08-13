@@ -72,7 +72,7 @@ abstract class GZ_Api
         if (!isset(self::$session['uid']) || !isset(self::$session['sid'])) {
             self::outPut(100);
         }
-    print_r(self);exit;
+
 	    /* 初始化session */
 	    include(EC_PATH . '/includes/cls_session.php');
 

@@ -692,7 +692,7 @@ function get_brands($cat = 0, $app = 'brand')
 }
 /**
  * by gaoyan 仅首页展示的品牌
- */
+ */ 
 function get_brands_index($cat = 0, $app = 'brand')
 {
     global $page_libs;
@@ -707,19 +707,14 @@ function get_brands_index($cat = 0, $app = 'brand')
 
     $children = ($cat > 0) ? ' AND ' . get_children($cat) : '';
 
-    $sql = "SELECT b.brand_id, b.brand_name, b.brand_logo, b.brand_desc, COUNT(*) AS goods_num, IF(b.brand_logo > '', '1', '0') AS tag ".
-            "FROM " . $GLOBALS['ecs']->table('brand') . "AS b, ".
-                $GLOBALS['ecs']->table('goods') . " AS g ".
-            "WHERE g.brand_id = b.brand_id $children AND is_show = 1 " .
-            " AND g.is_on_sale = 1 AND g.is_alone_sale = 1 AND g.is_delete = 0 ".
-            "ORDER BY b.is_index DESC,b.sort_order ASC";
+    $sql = "SELECT * FROM " . $GLOBALS['ecs']->table('brand') . " WHERE is_show = 1 and is_index=1 ORDER BY is_index DESC,sort_order ASC";
     if (isset($static_page_libs[$template]['/library/brands.lbi']))
     {
         $num = get_library_number("brands");
         $sql .= " LIMIT $num ";
     }
-    $row = $GLOBALS['db']->getAll($sql);
 
+    $row = $GLOBALS['db']->getAll($sql);
     foreach ($row AS $key => $val)
     {
         $row[$key]['url'] = build_uri($app, array('cid' => $cat, 'bid' => $val['brand_id']), $val['brand_name']);

@@ -28,10 +28,17 @@
 
 require(EC_PATH . '/includes/init.php');
 include_once(EC_PATH . '/includes/lib_order.php');
-
-$name = _POST('name');
-$password = _POST('password');
  
+if(!empty($_GET['name'])){
+	$name = _GET('name');
+}else{
+	$name = _POST('name');
+}
+if(!empty($_GET['password'])){
+	$password = _GET('password');
+}else{
+	$password = _POST('password');
+}
 if (!$user->login($name, $password)) {
 	GZ_Api::outPut(6);
 }
