@@ -35,7 +35,7 @@ function get_shop_help2()
     $sql = 'SELECT c.cat_id, a.link, c.cat_name, a.content, c.sort_order, a.article_id, a.title, a.file_url, a.open_type ' .
             'FROM ' .$GLOBALS['ecs']->table('article'). ' AS a ' .
             'LEFT JOIN ' .$GLOBALS['ecs']->table('article_cat'). ' AS c ' .
-            'ON a.cat_id = c.cat_id WHERE c.cat_type = 1 AND a.is_open = 1 AND a.open_type = 0 ' .
+            'ON a.cat_id = c.cat_id WHERE c.cat_id = 8 AND a.is_open = 1 ' .
             'ORDER BY c.sort_order ASC, a.article_id';
     $res = $GLOBALS['db']->getAll($sql);
 
@@ -54,6 +54,7 @@ function get_shop_help2()
         $arr[$row['cat_id']]['article'][$key]['title']       = $row['title'];
         $arr[$row['cat_id']]['article'][$key]['short_title'] = $GLOBALS['_CFG']['article_title_length'] > 0 ?
             sub_str($row['title'], $GLOBALS['_CFG']['article_title_length']) : $row['title'];
+        $arr[$row['cat_id']]['article'][$key]['imgurl']  = getImage($row['file_url']);
     }
 
     return $arr;

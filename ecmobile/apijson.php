@@ -11,6 +11,8 @@ if(!$ac){
 		<li><a href="?ac=applyshow" target="_blank">用户中心：=>驻站申请｛展示申请项内容｝  ?url=applyshow</a></li>
 		<li><a href="?ac=showbrand" target="_blank">艺术家页面  /showbrand&brand_id=4</a></li>
 		<li><a href="?ac=signupbrand" target="_blank">艺术家申请  /user/signupbrand</a></li>
+		<li><a href="http://182.92.99.6/ecmobile/?url=/article&article_id=20" target="_blank">内容查看页面链接   /article&article_id=10</a></li>
+		<li><a href="http://182.92.99.6/ecmobile/?url=/huodong" target="_blank">活动页面   /huodong</a></li>
 	</ul>
 </div>
 <?php
