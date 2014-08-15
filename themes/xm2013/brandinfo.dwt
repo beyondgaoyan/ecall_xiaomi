@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="Keywords" content="{$keywords}" />
 <meta name="Description" content="{$description}" />
-<base href="http://182.92.99.6/ecxiaomi/" />
+<base href="http://182.92.99.6/" />
 <title>{$page_title}</title>
 <link rel="shortcut icon" href="favicon.ico"/>
 <link rel="icon" href="animated_favicon.gif" type="image/gif"/>
